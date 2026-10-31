@@ -43,6 +43,8 @@ jobs:
           if [ ! -d android ]; then
             flutter create --platforms=android --project-name car_fault_finder .
           fi
+          # Remove the default template test (it references MyApp and fails to compile)
+          rm -f test/widget_test.dart
 
       - name: Install dependencies
         working-directory: car_fault_finder
